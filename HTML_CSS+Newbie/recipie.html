@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tditems{
+            font-weight: 800;
+            color: rgba(130,79,66,255); 
+        }
+        body{
+            background-color: #f3e5d8;
+        }
+        .one {
+            display: flex;
+            margin: auto;
+            height: 1500px;
+            width: 600px;
+            border-radius: 12px;
+            background-color: #ffffff;
+
+            transform: translate(0%, 8%); 
+        }
+        #two{
+            height: 280px;
+            width:550px ;
+            border-radius: 12px;
+            display: flex;
+            margin-left: 27px;
+            margin-top: 18px;
+        }
+        .three{
+            margin-left: 27px;
+            font-family: sans-serif;
+            font-size:smaller;
+            color: gray;
+            
+        }
+        .four{
+            width: 550px;
+            height: 120px;
+            border-radius: 12px;
+            background-color: #fff7fc;
+        }
+        @font-face {
+            font-family: "VVDSRashfieldLight";
+            src: url("/Fonts/VVDSRashfield-Light.eot") format(eot);
+            src: url("/Fonts/VVDSRashfield-Light.ttf") format(ttf);
+            src: url("/Fonts/VVDSRashfield-Light.woff") format(woff);
+        }
+        @font-face {
+            font-family: "Old Roman W00 Bold Italic";
+            src: url("/Fonts/OldRomanW00BoldItalic/OldRomanW00BoldItalic.eot");
+            src: url("/Fonts/OldRomanW00BoldItalic/OldRomanW00BoldItalic.ttf");
+            src: url("/Fonts/OldRomanW00BoldItalic/OldRomanW00BoldItalic.woff");
+        }
+        
+        #font1 {
+            font-family: "VVDSRashfieldLight";
+            font-size: 1.5em;
+        }
+        #font2{
+            font-size: 20px;
+            font-weight: bold;
+            font-family: "Old Roman W00 Bold Italic";
+            
+        }
+        ul{
+            list-style: none;
+        }
+        ol{
+            list-style: none;
+            padding: 0;
+        }
+        #prep::before{
+            content: "\2022"; color: purple;
+            margin-right: 15px;
+        }
+        #bbold{
+            color: rgba(90,81,76,255);
+            font-size: small;
+        }
+        #ing::before{
+            margin-right: 10px;
+            content: "\2022"; 
+            color: rgba(130,79,66,255);
+        }
+        hr{
+            margin-right: 27px;
+            opacity:0.5 ;
+        }
+        
+        #ins::before{
+            margin-right: 10px;
+            content: counter(list-style);
+            color: rgba(130,79,66,255);
+        }
+        #ins{
+            counter-increment: list-style;
+        }
+        table {
+            
+            width: 100%; 
+        }
+        table, td {
+            border: none; 
+        }
+        .bottom{
+            position: absolute; 
+            width: 100%;
+            height: 50vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div>
+            <img id="two" src="./Media/yummy.jpg">
+
+            <div class="three">
+                <h3 id="font1" style="color: rgb(48, 48, 48); font-size: 2em;">Simple&nbsp; Omelette&nbsp; Recipe</h3>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque illo dolorem nesciunt commodi  error fugit doloribus. Hic, optio ratione Eaque illo dolorem nesciunt commodi ab error!</p><br>
+                 <div class="four">
+                    <b style="color: #712f4a;" id="font2"><div style="margin-left: 15px; display: inline-block; margin-top: 10px;">Preparation Time</div> </b>
+                    <ul>
+                        <li id="prep">
+                            <b id="bbold">Total:</b> Approximately 10 minutes
+                        </li>
+                        <li id="prep">
+                            <b id="bbold">Preparation:</b> 5 minutes
+                        </li>
+                        <li id="prep">
+                            <b id="bbold">Cooking:</b> 5 minutes
+                        </li>
+                    </ul><br>
+                 </div>
+               <h4 id="font1" style="color: rgba(130,79,66,255);">Ingredients</h4> 
+                <ul>
+                    <li id="ing">2-3 large eggs</li><br>
+                    <li id="ing">salt to taste</li><br>
+                    <li id="ing">pepper</li><br>
+                    <li id="ing">1 spoon of butter or oil</li><br>
+                    <li id="ing"> fillings like cheese veggies and herbs</li><br>
+                </ul><hr>
+                <h4 id="font1" style="color: rgba(130,79,66,255);">Instructions</h4>
+                <ol>
+                    <li id="ins"><b id="bbold">Lorem ipsum</b>, dolor sit amet consectetur adipisicing elit. Quidem doloremque suscipit ratione saepe ducimus repudiandae qui commodi fugit aspernatur deleniti.</li><br>
+                    <li id="ins"><b id="bbold">Lorem ipsum</b> dolor sit amet consectetur adipisicing elit. Veniam tenetur veritatis consectetur delectus saepe dolores quidem distinctio illum, sunt ab.</li><br>
+                    <li id="ins"><b id="bbold">Lorem, ipsum</b> dolor sit amet consectetur adipisicing elit. Repudiandae exercitationem reiciendis eum sed impedit excepturi neque sequi veritatis aut iure.</li><br>
+                    <li id="ins"><b id="bbold">Lorem ipsum</b> dolor sit amet consectetur adipisicing elit. Corrupti reprehenderit eaque voluptates vero asperiores quidem neque quis exercitationem sed dolorem.</li><br>
+                    <li id="ins"><b id="bbold">Lorem ipsum</b>, dolor sit amet consectetur adipisicing elit. Commodi tempora provident velit sapiente illo inventore. fillings like cheese veggies and herbs</li><br>
+                </ul><hr>
+                </ol>
+                <h4 id="font1" style="color: rgba(130,79,66,255);">Nutrition</h4>
+                The table below shows nutritional values per serving without the additional fillings.<br><br>
+                <table>
+                    <tr>
+                        <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calories</td>
+                        <td id="tditems">277kcal
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                    </tr>
+                    <tr>
+                        <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carbs</td>
+                        <td id="tditems">0g
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                    </tr>
+                    <tr>
+                        <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protein</td>
+                        <td id="tditems">20g
+                    </tr>
+                    <tr>
+                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                    </tr>
+                    <tr>
+                        <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fat</td>
+                        <td id="tditems">22g
+                    </tr>
+                </table> 
+            </div>
+        </div>
+    </div>
+   <div class="bottom"></div>
+</body>
+</html>
