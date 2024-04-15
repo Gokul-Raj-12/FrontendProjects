@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Preview</title>
+    <style>
+        .one{
+            background-color: white;
+            width: 350px;
+            height: 440px;
+            display: flexbox;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            top: 100px;
+            left: 40%;
+            border: 2px solid black;
+            box-shadow:  8px 8px black;
+            border-radius: 20px;
+            transition: box-shadow 0.3s ease-in-out;
+            
+        }
+        .one:hover{
+            box-shadow:  15px 15px black;
+            cursor: url('./Media/icons8-cursor-50.png'),pointer;
+        }
+        .two{
+            display: flex;
+            justify-content: center;
+        }
+        #image{
+            height: 165px;
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .three{
+            font-family: sans-serif;
+            font-size: smaller;
+            font-weight: 800;
+            width: fit-content;
+            padding: 5px 5px 5px 5px;
+            background-color: hsl(47, 88%, 63%) ;
+            margin-left: 25px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body style="background-color: hsl(47, 88%, 63%);">
+    <div class="one">
+        <div class="two">
+            <img src="./Media/wallhaven-l8vp7y.jpg" alt="placeholder" id="image">
+        </div><br>
+        <div class="three">
+            Learning
+        </div>
+        <div style="margin-top: 10px;">
+            <b style="font-family: sans-serif; font-size: smaller; margin-left: 25px;">Published 21 Dec 2023</b>
+        </div>
+        <div style="font-family: sans-serif; margin-left: 25px; color: hsl(47, 77%, 51%);">
+            <h3>HTML & CSS foundations</h3>
+        </div>
+        <div style="font-family: sans-serif; margin-left: 25px; color: #8b8b8b;">
+            These languages are the backbone of every website, defining structure, content, and presentation.
+        </div><br>
+        <span style="display: inline-flex; align-items: center;">
+            <div>
+                <img src="./Media/gokul.jpg" alt="persimg" style="height: 25px; width: 25px; border-radius: 50%; margin-left: 25px;">
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b style="font-family: sans-serif; font-size: 0.9em;">Gokul Raj</b>
+        </span>
+    </div>
+</body>
+</html>
