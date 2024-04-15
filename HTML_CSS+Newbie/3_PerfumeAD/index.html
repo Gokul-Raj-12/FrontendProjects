@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/407957f2a6.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: #f3eae3;
+        }
+        .one{            
+            background-color: white;
+            transform: translate(0px,30%);
+            margin: auto;
+            height: 440px;
+            width: 560px;
+            border-radius: 15px;
+            display: flex;
+            padding-right: 25px;
+        }
+        .two{
+            height: 440px;
+            width:285px ;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            display: inline-block;
+            width: 50%;
+        }
+        #image{
+            height: 440px;
+            width:285px ;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+        }
+        .three {
+            margin-top: 10px; 
+            margin-left: 35px;
+            vertical-align: top;
+            display: inline-block;
+            width: 50%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        .four{
+            
+            font-family: monospace; 
+            color: #8b8b8b; 
+            font-size: 1.15em;
+        }
+        .cart{
+            width: 245px;
+            height: 45px;
+            background-color: #47856e;
+            border-radius: 10px;
+            border: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .cart:hover{
+            background-color: #296e55;
+        }
+    </style>
+</head>
+<body>
+    <!--3:40 start time-->
+    <div class="one">
+        <div class="two">
+            <img src="./Media/fvv3coes3vm7ndnw6tml_edited.jpg" alt="Perfume" id="image">
+        </div>               
+        <div class="three">
+            <pre style="font-family: monospace; letter-spacing: 0.25em; color: #8b8b8b; font-size: 1.15em;">PERFUME</pre>
+            
+                <h1 style="font-family:Fraunces; color: rgb(31, 31, 31); font-size: 32px;">Gabrielle Essence Eau <br>De Parfum</h1>
+            
+            <div class="four">
+                <pre>A floral, solar and voluptuos <br>interpretation composed  by<br>Olivier Polge, Prefumer-Creator<br>for the House of CHANEL.</pre>
+            </div>
+            <span style="display: inline-flex; align-items: center;">
+                <h1 style="font-family:Fraunces; color: #47856e; font-size: 32px;">$149.99</h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                <b style=" text-decoration: line-through; font-family: monospace; letter-spacing: 0.25em; color: #8b8b8b; font-size: 1em;">$169.99</b>
+            </span>    
+            <button class="cart">
+                <div>
+                    <b style="color: white;"><i class="fa-sharp fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;&nbsp;Add to Cart</b>
+                </div>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
