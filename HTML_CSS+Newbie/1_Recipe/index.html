@@ -11,37 +11,46 @@
         }
         body{
             background-color: #f3e5d8;
+            
         }
         .one {
             display: flex;
             margin: auto;
-            height: 1500px;
-            width: 600px;
+            min-width: 400px;
+            max-width: 600px;
             border-radius: 12px;
             background-color: #ffffff;
-
             transform: translate(0%, 8%); 
         }
         #two{
+            margin-left: 2.5%;
             height: 280px;
-            width:550px ;
+            width: 95%;
+            min-width: 380px;
             border-radius: 12px;
             display: flex;
-            margin-left: 27px;
+            
             margin-top: 18px;
         }
         .three{
             margin-left: 27px;
+            margin-right: 5px;
             font-family: sans-serif;
             font-size:smaller;
             color: gray;
             
         }
         .four{
-            width: 550px;
+            min-width: 310px;
+            max-width: 550px;
             height: 120px;
             border-radius: 12px;
             background-color: #fff7fc;
+        }
+        @media (max-width: 650px) {
+        .four {
+        margin-right: 20px;
+            }
         }
         @font-face {
             font-family: "VVDSRashfieldLight";
@@ -100,7 +109,7 @@
             counter-increment: list-style;
         }
         table {
-            
+            padding-bottom: 20px;
             width: 100%; 
         }
         table, td {
@@ -109,7 +118,7 @@
         .bottom{
             position: absolute; 
             width: 100%;
-            height: 50vh;
+            height: 30vh;
         }
     </style>
 </head>
@@ -160,21 +169,21 @@
                         <td id="tditems">277kcal
                     </tr>
                     <tr>
-                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                        <td colspan="2"><hr></td>
                     </tr>
                     <tr>
                         <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Carbs</td>
                         <td id="tditems">0g
                     </tr>
                     <tr>
-                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                        <td colspan="2"><hr></td>
                     </tr>
                     <tr>
                         <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Protein</td>
                         <td id="tditems">20g
                     </tr>
                     <tr>
-                        <td colspan="2"><hr></td> <!-- colspan="2" ensures the hr spans across both columns -->
+                        <td colspan="2"><hr></td>
                     </tr>
                     <tr>
                         <td width="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fat</td>
@@ -184,6 +193,5 @@
             </div>
         </div>
     </div>
-   <div class="bottom"></div><!--placeholder-->
 </body>
 </html>
