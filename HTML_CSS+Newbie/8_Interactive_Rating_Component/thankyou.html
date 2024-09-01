@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="parent_div">
+        <div id="main_div" style="margin: 0 auto; width: fit-content; text-align: center;">
+            
+
+            <div style="display: flex; justify-content: center;">
+                <img src="./media/illustration-thank-you.svg">
+            </div>
+            
+            <br><br><br>
+
+            <span id="paragraph">You selected <span id="rating"></span> out of 5</span>
+            
+            <br><br><br>
+        
+            <h1>Thank you! </h1>
+            
+            <p style="font-size: larger;">
+            We appreciate you taking the time to give a rating. <br>
+            If you ever need more support, don't hesitate to <br>
+            get in touch!
+            </p>
+
+            </p>
+            
+        </div>
+    </div>
+
+
+    <script>
+        // Function to get query parameter by name
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Retrieve the rating from the URL
+        const rating = getQueryParam('rating');
+
+        // Display the rating on the page
+        document.getElementById('rating').innerText = rating ? rating : "No rating provided.";
+    </script>
+</body>
+</html>

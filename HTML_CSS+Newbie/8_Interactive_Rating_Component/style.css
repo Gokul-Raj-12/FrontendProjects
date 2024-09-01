@@ -1,0 +1,90 @@
+body {
+    background-color: hsl(216, 12%, 8%);
+}
+
+#parent_div{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main_div{
+    
+    color: whitesmoke;
+    padding: 40px;
+    min-height: 330px;
+    min-width: 330px;
+    background-image: linear-gradient(hsl(213, 19%, 18%), hsl(215, 18%, 13%));
+    border-radius: 33px;
+    font-family: overpass;
+    opacity: 0.88;
+    
+    
+}
+
+.circle {
+    color: rgb(214, 219, 224);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 55px;
+    min-height: 45px;
+    min-width: 45px;
+    max-width: 50px;
+    background-color: hsl(211, 23%, 22%);
+    border-radius: 50%;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.circle:hover {
+    background-color: orange;
+}
+
+#submit {
+    min-width: 350px;
+    min-height: 50px;
+    padding: 0%;
+    margin: 0%;
+    text-decoration: none;
+    border: none;
+    background-color: orange;
+    border-radius: 33px;
+
+}
+
+#submit:disabled {
+    background-color: lightcoral;
+    cursor: not-allowed;
+}
+
+.active {
+    background-color: white; 
+    color: black;
+    border: none;
+}
+
+#submit:hover {
+    background-color: white;
+    
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:426px) { 
+    #main_div{
+        min-width: 310px;
+    }
+}
+
+
+#paragraph {
+    background-color: hsl(216, 12%, 8%);
+    color: orange;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: large;
+
+}

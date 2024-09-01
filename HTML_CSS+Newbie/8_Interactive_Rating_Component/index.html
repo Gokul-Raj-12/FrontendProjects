@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+        <div id="parent_div">
+
+
+
+            <div id="main_div">
+
+                <div class="circle">
+                <img id="icon-star" src="./media/icon-star.svg" alt="">
+                </div>
+
+                <br>
+
+                <span style="font-size: xx-large;">How did we do?</span>
+                <br><br>
+                Please let us know how we did with your support <br>
+                request. All feedback is appreciated to help us <br>
+                improve our offering!
+                <br><br><br>
+
+                <div id="ratingButtons" style="display: inline-flex;">
+                    <button onclick="selectRating(1)" class="circle">1</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="selectRating(2)" class="circle">2</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="selectRating(3)" class="circle">3</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="selectRating(4)" class="circle">4</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="selectRating(5)" class="circle">5</button>
+                </div> <br><br><br>
+                
+                <button onclick="submitFeedback()" id="submit" type="submit">S&nbsp;U&nbsp;B&nbsp;M&nbsp;I&nbsp;T</button>
+
+            </div>
+
+            <script src="./script.js"></script>
+            <script>
+                let selectedRating = null;
+        
+                function selectRating(rating) {
+                    // Set the selected rating
+                    selectedRating = rating;
+        
+                    // Highlight the selected button
+                    const buttons = document.querySelectorAll('#ratingButtons button');
+                    buttons.forEach(button => {
+                        button.classList.remove('active');
+                    });
+                    buttons[rating - 1].classList.add('active');
+        
+                    // Enable the submit button
+                    document.getElementById('submitBtn').disabled = false;
+                }
+
+                function submitFeedback() {
+                    if (selectedRating !== null) {
+                        // Redirect to the second page with the rating in the URL
+                        window.open(`thankyou.html?rating=${selectedRating}`, '_blank');
+                    }
+                }
+            </script>
+
+        </div>
+</body>
+</html>
