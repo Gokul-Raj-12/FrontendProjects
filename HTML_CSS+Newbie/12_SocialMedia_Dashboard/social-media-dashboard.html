@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div>
+                <h1 class="title">Social Media Dashboard</h1>
+                <p class="total-followers">Total Followers: 23,004</p>
+            </div>
+            <div class="toggle-container">
+                <span class="toggle-label">Dark Mode</span>
+                <label class="toggle">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <main>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card facebook">
+                        <img src="./media/fb.png" alt="Facebook">
+                        <span><i class="fa-brands fa-square-facebook" style="color: #74C0FC;"></i>@nathanf</span>
+                    </div>
+                    <div class="follower-count">1987</div>
+                    <div class="follower-label">Followers</div>
+                    <div class="change positive">12 Today</div>
+                </div>
+                <div class="card">
+                    <div class="card twitter">
+                        <img src="./media/twit.png" alt="Twitter">
+                        <span>@nathanf</span>
+                    </div>
+                    <div class="follower-count">1044</div>
+                    <div class="follower-label">Followers</div>
+                    <div class="change positive">99 Today</div>
+                </div>
+                <div class="card">
+                    <div class="card instagram">
+                        <img src="./media/ig.png" alt="Instagram">
+                        <span>@realnathanf</span>
+                    </div>
+                    <div class="follower-count">11k</div>
+                    <div class="follower-label">Followers</div>
+                    <div class="change positive">1099 Today</div>
+                </div>
+                <div class="card">
+                    <div class="card youtube">
+                        <img src="./media/yt.png" alt="YouTube">
+                        <span>Nathan F.</span>
+                    </div>
+                    <div class="follower-count">8239</div>
+                    <div class="follower-label">Subscribers</div>
+                    <div class="change negative">144 Today</div>
+                </div>
+            </div>
+
+            <div class="overview">
+                <h2 class="overview-title">Overview - Today</h2>
+                <div class="overview-container">
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Page Views</div>
+                            <div class="overview-count">87</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/fb.png" alt="Facebook">
+                            <div class="change positive">3%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Likes</div>
+                            <div class="overview-count">52</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/fb.png" alt="Facebook">
+                            <div class="change negative">2%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Likes</div>
+                            <div class="overview-count">5462</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/ig.png" alt="Instagram">
+                            <div class="change positive">2257%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Profile Views</div>
+                            <div class="overview-count">52k</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/ig.png" alt="Instagram">
+                            <div class="change positive">1375%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Retweets</div>
+                            <div class="overview-count">117</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/twit.png" alt="Twitter">
+                            <div class="change positive">303%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Likes</div>
+                            <div class="overview-count">507</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/twit.png" alt="Twitter">
+                            <div class="change positive">553%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Likes</div>
+                            <div class="overview-count">107</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/yt.png" alt="YouTube">
+                            <div class="change negative">19%</div>
+                        </div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-card-left">
+                            <div class="overview-label">Total Views</div>
+                            <div class="overview-count">1407</div>
+                        </div>
+                        <div class="overview-card-right">
+                            <img src="./media/yt.png" alt="YouTube">
+                            <div class="change negative">12%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html>

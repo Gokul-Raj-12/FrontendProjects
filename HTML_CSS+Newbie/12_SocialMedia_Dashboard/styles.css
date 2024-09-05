@@ -1,0 +1,261 @@
+:root {
+    --bg-color: #fff;
+    --text-color: #1d1f29;
+    --card-bg: #f1f3fa;
+    --highlight-color: #1db489;
+    --lowlight-color: #dc414c;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #FFE993, #F6F7DD);
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.total-followers {
+    font-size: 14px;
+    color: #63687d;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-label {
+    margin-right: 10px;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.card.facebook::before {
+   background-color: #1877F2;
+}
+
+.card.twitter::before {
+   background-color: #1DA1F2;
+}
+
+.card.instagram::before {
+   background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7 );
+}
+
+.card.youtube::before {
+   background-color: #FF0000;
+}
+
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+     img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.follower-count {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.follower-label {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #63687d;
+    margin-bottom: 20px;
+}
+
+.change {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    margin-right: 4px;
+}
+
+.positive {
+    color: var(--highlight-color);
+}
+
+.positive::before {
+    border-bottom: 5px solid var(--highlight-color);
+}
+
+.negative {
+    color: var(--lowlight-color);
+}
+
+.negative::before {
+    border-top: 5px solid var(--lowlight-color);
+}
+
+.overview {
+    margin-top: 40px;
+}
+
+.overview-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.overview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.overview-card {
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.overview-card-left {
+    text-align: left;
+}
+
+.overview-card-right {
+    text-align: right;
+}
+
+.overview-label {
+    font-size: 14px;
+    color: #63687d;
+    margin-bottom: 5px;
+}
+
+.overview-count {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.dark-mode {
+    --bg-color: #1d1f29;
+    --text-color: #fff;
+    --card-bg: #252b43;
+    background-image: none;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-container {
+        margin-top: 20px;
+    }
+}
