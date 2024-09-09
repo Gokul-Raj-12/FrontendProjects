@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Grid</title>
+    <style>
+        #title {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: "lato", sans-serif;
+        }
+
+        #title > span {
+            grid-column: 1 / -1;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px) {
+            #title {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id='title'>
+        <span>PROJECTS</span>
+        <div class="title">Recipe</div>
+        <div class="title">Blog Preview</div>
+        <div class="title">Perfme Card</div>
+        <div class="title">QR Code Component</div>
+        <div class="title">Social Links</div>
+        <div class="title">Results Summary</div>
+    </div>
+</body>
+</html>

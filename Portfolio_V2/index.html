@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+
+        @font-face {
+            font-family: 'MadeMirage'; 
+            src: url('./Font/MADEMirageRegularPERSONALUSE.otf'); 
+        }
+
+        body{
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .page-container{
+            height: 100vh;
+            width: 100%;
+            perspective: 1000px;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        .home{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+                background-image: url(/3rxcarbxlcp61.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                height:100vh;
+                width: 100vw;   
+                
+            }
+
+            .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .name {
+            font-size: 8vw; 
+            margin: 0;
+            font-family: "MadeMirage";
+        }
+
+        .title {
+            font-size: 4vw; 
+            margin: 0;
+            font-family: 'MadeMirage';
+            
+        }
+
+        .name, .title {
+    color: beige; 
+    text-shadow: 
+        -1px -1px 0 #555555,  
+         1px -1px 0 #555555,
+        -1px  1px 0 #555555,
+         1px  1px 0 #555555;
+}
+
+
+        .name, .title {
+    position: relative;
+    display: inline-block;
+    padding: 0.2em;
+    background-color: rgba(255, 255, 255, 0.08); 
+    border-radius: 8px; 
+}
+
+
+
+@keyframes curtain {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+        .page {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                scroll-snap-align: start;
+                transform-origin: center top;
+                transition: transform 0.5s ease-in-out;
+                position: relative;
+                overflow: hidden;
+                
+                }
+        .page::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.77) .05px, transparent .7px), 
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.77) .05px, transparent .7px);
+                background-size: 
+                calc(100% / 5) calc(100% / 4);
+
+                pointer-events: none;
+                z-index: 1;
+    
+                }
+
+.loading-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #222222; /* Dark background for better contrast */
+z-index: 1000;
+display: flex;
+justify-content: center;
+align-items: center;
+animation: fadeOut 0.67s 1.7s forwards; /* Delay the fade-out by 4 seconds */
+}
+
+.loading-bar-container {
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 2px;
+height: 100%;
+}
+
+.loading-bar-grey {
+width: 100%;
+height: 100%;
+background-color: #888888; /* Grey color for the bar */
+position: absolute;
+bottom: 0;
+}
+
+.loading-bar-white {
+width: 100%;
+height: 0; /* Start from the bottom */
+background-color: #ffffff; /* White color for the bar */
+position: absolute;
+bottom: 0;
+animation: load 2s forwards, liftBar 1s 1s forwards ease; /* Add liftBar animation */
+}
+
+@keyframes load {
+0% {
+height: 0; /* Start from the bottom */
+}
+100% {
+height: 100%; /* Run to the top */
+}
+}
+
+@keyframes liftBar {
+0% {
+transform: translateY(0);
+}
+100% {
+transform: translateY(-100%);
+}
+}
+
+@keyframes fadeOut {
+0% {
+opacity: 1;
+}
+100% {
+opacity: 0;
+visibility: hidden;
+}
+}
+
+.curtain-lift {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #222222; /* Dark background for better contrast */
+z-index: 999;
+animation: liftCurtain 0.88s 2s forwards ease-in-out; /* Increase duration to 2 seconds and use ease-in-out */
+}
+
+@keyframes liftCurtain {
+0% {
+transform: translateY(0);
+}
+
+100% {
+transform: translateY(-100%);
+}
+}
+
+
+@media (max-width: 1023px) {
+    .page::before {
+        background-size: 
+            calc(100% / 4) calc(100% / 4);
+    }
+}
+@media (max-width: 426px) {
+    .page::before {
+        background-size: 
+            calc(100% / 3) calc(100% / 3);
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="loading-overlay">
+        <div class="loading-bar-container">
+            <div class="loading-bar-grey"></div>
+            <div class="loading-bar-white"></div>
+        </div>
+    </div>
+
+    <div class="page-container">
+        <div class="page">
+            <div class="home">
+                <div class="name">
+                    <span class="letter">G</span>
+                    <span class="letter">O</span>
+                    <span class="letter">K</span>
+                    <span class="letter">U</span>
+                    <span class="letter">L</span>
+                    <span class="letter"> </span>
+                    <span class="letter">R</span>
+                    <span class="letter">A</span>
+                    <span class="letter">J</span>
+                </div>
+                        <br><br>
+                    <div class="title">
+                        <span class="letter">E</span>
+                        <span class="letter">N</span>
+                        <span class="letter">G</span>
+                        <span class="letter">I</span>
+                        <span class="letter">N</span>
+                        <span class="letter">E</span>
+                        <span class="letter">E</span>
+                        <span class="letter">R</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="letter">D</span>
+                        <span class="letter">E</span>
+                        <span class="letter">V</span>
+                        <span class="letter">E</span>
+                        <span class="letter">L</span>
+                        <span class="letter">O</span>
+                        <span class="letter">P</span>
+                        <span class="letter">E</span>
+                        <span class="letter">R</span>
+                    
+                </div>        
+            </div>
+        </div>
+        <div class="page">
+            <!--<h1>Page 2</h1>      &nbsp;&nbsp;&nbsp;
+            <p>Content for page 2...</p>-->
+        </div>
+        <div class="page">
+            <!--<h1>Page 2</h1>      &nbsp;&nbsp;&nbsp;
+            <p>Content for page 2...</p>-->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    const curtainLift = document.createElement('div');
+    curtainLift.classList.add('curtain-lift');
+    document.body.appendChild(curtainLift);
+
+    setTimeout(() => {
+        loadingOverlay.style.display = 'none';
+    }, 6000); 
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+            const letters = document.querySelectorAll('.letter');
+            letters.forEach((letter, index) => {
+                const delay = Math.random() * 4; 
+                letter.style.animation = `curtain 1s ease-out ${delay}s forwards`;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+  // Select all elements with the class 'page'
+  const pages = document.querySelectorAll('.page');
+
+  // Check if there are at least three "pages" (sections)
+  if (pages.length >= 3) {
+    // Target the second and third "pages" (sections)
+    const secondPage = pages[1];
+    const thirdPage = pages[2];
+
+    // Function to fetch and inject content
+    const fetchAndInject = (page, fileName) => {
+      fetch(fileName)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok for ${fileName}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+          page.innerHTML = data; // Update content for the page
+        })
+        .catch(error => {
+          console.error(`Error fetching the HTML for ${fileName}:`, error);
+        });
+    };
+
+    // Fetch and inject content for the second "page"
+    fetchAndInject(secondPage, './temp.html');
+
+    // Fetch and inject content for the third "page"
+    fetchAndInject(thirdPage, './temp2.html');
+  } else {
+    console.warn('There are not enough page sections to inject content into the second and third sections.');
+  }
+});
+
+
+        </script>
+        
+    
+</body>
+</html>
+
