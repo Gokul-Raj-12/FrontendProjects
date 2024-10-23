@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Consumption Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-color: #3b82f6;
+            --hover-color: #2563eb;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --card-bg: #2d2d2d;
+            --border-color: #404040;
+            --accent-color: #60a5fa;
+            --hover-color: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-color);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tab.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .tab:hover {
+            color: var(--hover-color);
+        }
+
+        .content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .multiplier-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .insights {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .insight-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .insight-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .chart-container {
+            height: 400px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle">
+        <i class="fas fa-moon"></i>
+        Toggle Theme
+    </button>
+
+    <div class="container">
+        <div class="header">
+            <h1>The Time Cost of Content Consumption</h1>
+            <p>Comparing passive entertainment hours to active skill development</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="consumption">
+                <i class="fas fa-clock"></i>
+                Content Hours
+            </button>
+            <button class="tab" data-tab="skills">
+                <i class="fas fa-brain"></i>
+                Skill Development
+            </button>
+            <button class="tab" data-tab="multipliers">
+                <i class="fab fa-youtube"></i>
+                Time Multipliers
+            </button>
+        </div>
+
+        <div class="content">
+            <div id="consumption" class="tab-content active">
+                <div class="chart-container">
+                    <canvas id="consumptionChart"></canvas>
+                </div>
+            </div>
+
+            <div id="skills" class="tab-content">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+
+            <div id="multipliers" class="tab-content">
+                <div class="multiplier-card">
+                    <span>Related YouTube Content</span>
+                    <span>2-3x original content</span>
+                </div>
+                <div class="multiplier-card">
+                    <span>Social Media Discussion</span>
+                    <span>1-2x original content</span>
+                </div>
+                <div class="multiplier-card">
+                    <span>Fan Theories & Analysis</span>
+                    <span>1-2x original content</span>
+                </div>
+                <div class="multiplier-card">
+                    <span>Reaction Videos</span>
+                    <span>0.5-1x original content</span>
+                </div>
+                <div class="multiplier-card">
+                    <span>Related Short-Form Content</span>
+                    <span>1-3x original content</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights">
+            <div class="insight-card">
+                <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                <ul>
+                    <li>Average YouTube consumption equals time to master 12 different skills</li>
+                    <li>100 game completionist time equals becoming an expert in 13+ fields</li>
+                    <li>One Piece anime time equals learning a new language to fluency</li>
+                    <li>Netflix library equals time for multiple black belts in martial arts</li>
+                </ul>
+            </div>
+            <div class="insight-card">
+                <h3><i class="fas fa-dumbbell"></i> Alternative Achievements</h3>
+                <ul>
+                    <li>Learn 2-3 musical instruments to performance level</li>
+                    <li>Achieve competitive athlete physique</li>
+                    <li>Master multiple languages</li>
+                    <li>Become a professional chef</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggling
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+        });
+
+        // Tab switching
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and content
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Chart data and configuration
+        const consumptionData = {
+            labels: ['One Piece', 'Top 100 Anime', 'GTA Online Veteran', '100 Games Completionist', 'PewDiePie Channel', 'Average YouTube Consumption', 'Indian Cinema', 'Netflix Library'],
+            datasets: [{
+                label: 'Hours',
+                data: [1200, 25000, 1000, 69000, 1000, 120000, 75000, 36000],
+                backgroundColor: '#3b82f6',
+                borderColor: '#2563eb',
+                borderWidth: 1
+            }]
+        };
+
+        const skillsData = {
+            labels: ['Musical Instrument Mastery', 'Athletic/Bodybuilding', 'Martial Arts Black Belt', 'Language Fluency', 'Cooking Expertise'],
+            datasets: [{
+                label: 'Hours to Master',
+                data: [10000, 3650, 5000, 2200, 2500],
+                backgroundColor: '#22c55e',
+                borderColor: '#16a34a',
+                borderWidth: 1
+            }]
+        };
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return value.toLocaleString();
+                        }
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const hours = context.raw;
+                            const years = (hours / (365 * 24)).toFixed(2);
+                            return `Hours: ${hours.toLocaleString()} (${years} years)`;
+                        }
+                    }
+                }
+            }
+        };
+
+        // Create charts
+        new Chart(document.getElementById('consumptionChart'), {
+            type: 'bar',
+            data: consumptionData,
+            options: chartOptions
+        });
+
+        new Chart(document.getElementById('skillsChart'), {
+            type: 'bar',
+            data: skillsData,
+            options: chartOptions
+        });
+    </script>
+</body>
+</html>
